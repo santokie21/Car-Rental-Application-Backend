@@ -13,12 +13,12 @@ public class AuthServiceImpl implements AuthService {
 
   private final UserRepository userRepository;
 
-  public AuthServiceImpl(UserRepository userRepository) {
+  public AuthServiceImpl(UserRepository userRepository){
     this.userRepository = userRepository;
   }
 
   @Override
-  public UserDTO createCustomer(SignUpRequest signUpRequest) {
+  public UserDTO createCustomer(SignUpRequest signUpRequest){
     User user = new User();
     user.setName(signUpRequest.getName());
     user.setEmail(signUpRequest.getEmail());
@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthService {
   }
 
   @Override
-  public boolean hasCustomerWithEmail(String email) {
+  public boolean hasCustomerWithEmail(String email){
     return userRepository.findFirstByEmail(email).isPresent();
   }
 }
